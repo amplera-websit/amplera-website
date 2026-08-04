@@ -1,0 +1,28 @@
+# Dependencies (only if you ever run npm install)
+node_modules/
+package-lock.json
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.idea/
+*.swp
+
+# Build/preview artefacts — don't commit these
+*.zip
+*.log
+
+# Local env / secrets — never commit these
+.env
+.env.local
+*.pem
+
+# Netlify local state
+.netlify/
+
+# Keep .vscode (shared tasks + recommended extensions are useful for the team),
+# but ignore per-user machine settings if you add any later:
+.vscode/*.local.json

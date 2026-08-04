@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Serve site (Python)",
+      "type": "shell",
+      "command": "python3 -m http.server 8000",
+      "windows": {
+        "command": "python -m http.server 8000"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "detail": "Serves the site at http://localhost:8000 using Python's built-in server. Press Ctrl+C in the terminal to stop."
+    },
+    {
+      "label": "Serve site (Node)",
+      "type": "shell",
+      "command": "npx --yes serve . -l 8000",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "detail": "Alternative if you prefer Node. Serves at http://localhost:8000."
+    }
+  ]
+}

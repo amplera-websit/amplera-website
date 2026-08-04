@@ -1,0 +1,26 @@
+{
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.NoBrowser": false,
+
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": false,
+
+  "html.format.wrapLineLength": 0,
+  "emmet.includeLanguages": {
+    "html": "html"
+  },
+
+  "search.exclude": {
+    "**/*.zip": true,
+    "**/*.pdf": true
+  }
+}

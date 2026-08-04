@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1000 620" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="sig" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0EA968"/>
+      <stop offset="0.52" stop-color="#3DE07A"/>
+      <stop offset="1" stop-color="#00D9A5"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="0.24" stop-color="#ffffff"/>
+    </linearGradient>
+    <mask id="m"><rect width="1000" height="620" fill="url(#fade)"/></mask>
+  </defs>
+  <g mask="url(#m)">
+    <g stroke="rgba(90,107,98,.20)" stroke-width="1">
+      <path d="M120 60V600M240 60V600M360 60V600M480 60V600M600 60V600M720 60V600M840 60V600M960 60V600"/>
+      <path d="M60 120H1000M60 220H1000M60 320H1000M60 420H1000M60 520H1000"/>
+    </g>
+    <path d="M60 330H1000" stroke="rgba(0,217,165,.35)" stroke-width="1" stroke-dasharray="2 7"/>
+    <path d="M60 540C300 538 430 534 505 522S600 400 700 300 855 176 1000 150" stroke="url(#sig)" stroke-width="2" opacity="0.28" stroke-linecap="round"/>
+    <path d="M60 552C310 550 440 546 516 530S612 372 704 262 862 132 1000 108" stroke="url(#sig)" stroke-width="7" opacity="0.5" filter="url(#soft)" stroke-linecap="round"/>
+    <path d="M60 552C310 550 440 546 516 530S612 372 704 262 862 132 1000 108" stroke="url(#sig)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "amplera-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Amplera Biosciences website — static HTML, CSS and vanilla JS. No build step.",
+  "scripts": {
+    "start": "npx --yes serve . -l 8000",
+    "dev": "npx --yes serve . -l 8000",
+    "serve:python": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "static-site",
+    "amplera"
+  ],
+  "license": "UNLICENSED"
+}
