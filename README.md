@@ -43,12 +43,14 @@ Then visit <http://localhost:8000>.
 
 | File | What it is |
 |---|---|
-| `index.html` | Home |
-| `services.html` | Services (includes Who we serve + the case study) |
-| `research.html` | Research & Innovation |
-| `technology.html` | Technology |
-| `about.html` | About |
-| `contact.html` | Contact (branching enquiry form) |
+| `index.html` | Home (`/`) |
+| `services/index.html` | Services — `/services/` (includes Who we serve + the case study) |
+| `research/index.html` | Research & Innovation — `/research/` |
+| `technology/index.html` | Technology — `/technology/` |
+| `about/index.html` | About — `/about/` |
+| `contact/index.html` | Contact (branching enquiry form) — `/contact/` |
+
+Each inner page lives in its own folder as `index.html` so the URL has no `.html` extension (`amplera.bio/services/` instead of `amplera.bio/services.html`). The old flat `about.html`, `services.html`, `research.html`, `technology.html` and `contact.html` files still exist at the root as thin redirect stubs, so any old bookmark or indexed link forwards to the new clean URL instead of 404ing.
 | `styles.css` | **All** styling, including the colour tokens |
 | `amplera-logo-white.svg` | Logo used in the nav and footer |
 | `amplera-logo-white-lower.svg` | Lowercase "amplera" alternative |
@@ -83,29 +85,35 @@ The signal gradient is `linear-gradient(103deg, #0EA968, #3DE07A 52%, #00D9A5)`.
 Open the relevant `.html` file and edit between the tags. The nav and footer are repeated on each page, so if you change a nav link, change it in all six.
 
 ### Adding a page
-Copy an existing page, replace the content between `<main>` and `</main>`, then add the link to the nav and footer of every page.
+Create a new folder with an `index.html` inside (e.g. `pricing/index.html`) so it gets a clean `/pricing/` URL, copy an existing page's structure into it, replace the content between `<main>` and `</main>`, then add the link (`/pricing/`) to the nav and footer of every page. Since the file is one level down from the root, its asset links (`styles.css`, `favicon.ico`, etc.) and its logo `src` need a leading `/` (e.g. `href="/styles.css"`) — copy that pattern from an existing inner page like `about/index.html`, not from the root `index.html`.
 
 ---
 
 ## Deploying
 
-Drag this folder onto <https://app.netlify.com/drop> — you'll get a live URL in about a minute. Sign in first (free) so the site persists and you can redeploy after edits.
+This site is deployed via **GitHub Pages**, with a custom domain (`amplera.bio`) set by the `CNAME` file at the root. Deploying is just:
 
-Cloudflare Pages works the same way.
+```bash
+git add -A
+git commit -m "your change"
+git push origin main
+```
+
+GitHub rebuilds and republishes automatically within a minute or two of a push to `main`. No Netlify/Cloudflare account is involved — the `_redirects` file in this repo is inert on GitHub Pages (it's Netlify/Cloudflare-only syntax) and only matters if the site is ever moved to one of those hosts.
 
 ---
 
 ## Contact form
 
-The form on `contact.html` is wired for **Netlify Forms** — it works the moment you deploy to Netlify, with no extra setup:
+The form on `contact/index.html` submits via **FormSubmit.co** (no account/API key needed — just an email address):
 
-- The `<form>` carries `data-netlify="true"` and a hidden `form-name` field, which is how Netlify detects it at deploy time.
-- Submissions appear under **Site configuration → Forms** in your Netlify dashboard. Add your email under **Form notifications** to get them in your inbox.
-- A hidden honeypot field (`bot-field`) catches most spam bots.
-- It submits by AJAX, so the visitor stays on the page and sees an inline confirmation.
-- Running locally it will **not** send — it shows "this will send for real once the site is deployed" instead, so you can test the validation without firing off real enquiries.
+- The email it sends to is set in one place: the `CONTACT_EMAIL` constant near the top of the `<script>` block at the bottom of `contact/index.html`.
+- The **first submission** after the inbox goes live triggers a one-time "Activate Form" confirmation email from FormSubmit to that address — someone needs to click it once. Every submission after that lands directly in the inbox.
+- A hidden honeypot field (`_honey`) catches most spam bots; `_captcha` is disabled since the AJAX flow already has its own validation.
+- It submits by `fetch()`, so the visitor stays on the page and sees an inline confirmation.
+- Until `CONTACT_EMAIL` is changed from its placeholder, or when running locally, submitting just shows "this will send for real once the site is deployed and the inbox is connected" — so you can test the validation without needing a live inbox yet.
 
-**Using a different host?** Change one attribute. For Formspark, Web3Forms or Basin, set the form's `action` to the endpoint they give you and remove `data-netlify="true"`.
+**Using a different service?** Swap the `fetch()` target in that same script block for whatever endpoint your provider (Web3Forms, Formspree, Basin, etc.) gives you.
 
 ---
 

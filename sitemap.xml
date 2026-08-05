@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://amplera.bio/</loc><priority>1.0</priority></url>
+  <url><loc>https://amplera.bio/technology/</loc><priority>0.8</priority></url>
+  <url><loc>https://amplera.bio/services/</loc><priority>0.8</priority></url>
+  <url><loc>https://amplera.bio/research/</loc><priority>0.8</priority></url>
+  <url><loc>https://amplera.bio/about/</loc><priority>0.6</priority></url>
+  <url><loc>https://amplera.bio/contact/</loc><priority>0.6</priority></url>
+</urlset>
