@@ -15,6 +15,9 @@ desktop.ini
 *.zip
 *.log
 
+# Raw source video before compression — the deployed copy is hero-bg.mp4
+home-page-hero-bg-video.mp4
+
 # Local env / secrets — never commit these
 .env
 .env.local
